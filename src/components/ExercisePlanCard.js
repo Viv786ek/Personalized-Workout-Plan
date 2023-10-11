@@ -1,10 +1,10 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography,List,ListItem,ListItemText,ListItemIcon } from '@mui/material';
 import workOut from '../assets/images/workOut.png';
 
 const ExercisePlanCard = ({ exercise }) => (
   <Box className="exercise-card">
-    <img src={exercise.imageLink} alt={workOut} loading="lazy" />
+    <img src={exercise.imageLink} alt='https://www.planetfitness.com/sites/default/files/feature-image/break-workout_602724.jpg' loading="lazy" />
     <Typography
       ml="21px"
       color="#000"
@@ -44,11 +44,21 @@ const ExercisePlanCard = ({ exercise }) => (
     >
       Day-wise Plans:
     </Typography>
-    <ul>
+    <List>
+        {exercise.dayWisePlans.map((plan, index) => (
+          <ListItem key={index}>
+            <ListItemIcon>
+              <span style={{ color: '#FF2625', fontSize: '20px', marginRight: '8px' }}>•</span>
+            </ListItemIcon>
+            <ListItemText primary={plan} />
+          </ListItem>
+        ))}
+      </List>
+    {/* <ul>
       {exercise.dayWisePlans.map((plan, index) => (
         <li key={index}>{plan}</li>
       ))}
-    </ul>
+    </ul> */}
   </Box>
 );
 

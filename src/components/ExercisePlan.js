@@ -111,7 +111,7 @@ const ExercisePlan = () => {
   const [workoutDuration, setWorkoutDuration] = useState('');
   const [selectedExercises, setSelectedExercises] = useState([]);
   const [generalWorkoutPlan, setGeneralWorkoutPlan] = useState(false);
-  const [generatedWorkout, setGeneratedWorkout] = useState(null);
+  const [generatedWorkout, setGeneratedWorkout] = useState([]);
 
 
   // useEffect(() => {
@@ -138,6 +138,7 @@ const ExercisePlan = () => {
     });
   };
 
+
   const handleGenerateWorkout = async () => {
     // Prepare user preferences and goals
     const userPreferences = {
@@ -163,22 +164,18 @@ const ExercisePlan = () => {
       // Set the generated workout plan in the state
       setGeneratedWorkout(generatedWorkoutPlan);
     } catch (error) {
-      if (error.response && error.response.status === 429) {
-        const retryAfter = parseInt(error.response.headers.get('Retry-After')) || 10; // Default to 10 seconds if no Retry-After header is provided
-        console.error(`Rate limited. Retrying after ${retryAfter} seconds...`);
-        
-        // Retry the request after waiting for the specified duration
-        setTimeout(handleGenerateWorkout, retryAfter * 1000);
-      } else {
         // Handle other errors
         console.error('Error generating workout plan:', error);
-      }
+      
     }
   };
 
   return (
-    <Stack id="exercisesPlan" alignItems="center" mt="37px" justifyContent="center" p="20px">
-      <Typography fontWeight={700} sx={{ fontSize: { lg: '44px', xs: '30px' } }} mb="49px" textAlign="center">
+    <Stack id="exercisesPlan" alignItems="center" 
+    mt="37px" justifyContent="center" p="20px">
+      <Typography fontWeight={700} 
+      sx={{ fontSize: { lg: '44px', xs: '30px' } }} 
+      mb="49px" textAlign="center">
         Get Your Personalized Workout
       </Typography>
       <Box position="relative" mb="72px">
@@ -255,7 +252,7 @@ const ExercisePlan = () => {
                 />
               </FormControl>
                 </Grid>
-            <Grid item xs={12} sm={6}>
+            {/* <Grid item xs={12} sm={6}>
               <FormControl fullWidth>
                 <InputLabel>Workout Duration</InputLabel>
                 <Input
@@ -270,7 +267,7 @@ const ExercisePlan = () => {
                   }}
                 />
               </FormControl>
-            </Grid> 
+            </Grid>  */}
             {/* Exercise selection */}
             <Grid item xs={12}>
               <FormControlLabel
@@ -286,7 +283,7 @@ const ExercisePlan = () => {
               />
             </Grid>
             {/* Add checkboxes for specific exercises */}
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
               <Typography variant="h6">Select Exercises:</Typography>
               <FormGroup>
                 <FormControlLabel
@@ -299,9 +296,9 @@ const ExercisePlan = () => {
                   }
                   label="Push-ups"
                 />
-                {/* Add more exercise options here */}
+                {/* Add more exercise options here 
               </FormGroup>
-            </Grid>
+            </Grid> */}
           </Grid>
           <Button variant="contained" onClick={handleGenerateWorkout}
             sx={{
@@ -318,20 +315,24 @@ const ExercisePlan = () => {
         </form>
 
         {/* Display the generated workout plan */}
-        {generatedWorkout && (
-          <Box mt={4}>
-          <Typography variant="h5">Generated Workout Plan:</Typography>
-          {generatedWorkout && generatedWorkout.length > 0 ? (
-            <div>
+        
+          <Box  sx={{ mt: { lg: '109px' } }} 
+    mt="50px" p="20px">
+          <Typography variant="h4" fontWeight="bold" 
+      sx={{ fontSize: { lg: '44px', xs: '30px' } }} 
+      mb="46px">
+            Generated Workout Plan:</Typography>
+          {generatedWorkout.length > 0 && (
+            <Stack direction="row" 
+            sx={{ gap: { lg: '107px', xs: '50px' } }} 
+            flexWrap="wrap" justifyContent="center">
               {generatedWorkout.map((exercise, index) => (
-                <ExercisePlanCard key={index} exercise={exercise} />
+                <ExercisePlanCard key={index} 
+                exercise={exercise} />
               ))}
-            </div>
-          ) : (
-            <Typography>No workout plan available.</Typography>
+            </Stack>
           )}
         </Box>
-        )}
       </Box>
     </Stack>
   );
