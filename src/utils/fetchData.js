@@ -51,37 +51,37 @@ export const fetchData = async (url, options)=>{
 //   }
 // };
 
-export const fetchWorkoutPlanData = async (userPreferences) => {
-  try {
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer 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',
-        'model': 'gpt-3.5-turbo'
-      },
-      body: JSON.stringify({
-        model: 'gpt-3.5-turbo',
-        messages: [
-          {
-            role: 'system',
-            content: `My name is Vivek. I am ${userPreferences.age} years old and my weight is ${userPreferences.weight}kg. I want to start exercise of ${userPreferences.fitnessLevel} level. Can you suggest a workout for me in JSON format with the given key: 'Workout Name', 'Duration', 'Image Link', 'Description', and an array of 'Day-wise Plans'.`
-          }
-        ]
-      })
-    });
+// export const fetchWorkoutPlanData = async (userPreferences) => {
+//   try {
+//     const response = await fetch('https://api.openai.com/v1/chat/completions', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//         'Authorization': 'Bearer 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',
+//         'model': 'gpt-3.5-turbo'
+//       },
+//       body: JSON.stringify({
+//         model: 'gpt-3.5-turbo',
+//         messages: [
+//           {
+//             role: 'system',
+//             content: `My name is Vivek. I am ${userPreferences.age} years old and my weight is ${userPreferences.weight}kg. I want to start exercise of ${userPreferences.fitnessLevel} level. Can you suggest a workout for me in JSON format with the given key: 'Workout Name', 'Duration', 'Image Link', 'Description', and an array of 'Day-wise Plans'.`
+//           }
+//         ]
+//       })
+//     });
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! Status: ${response.status}`);
+//     }
 
-    const data = await response.json();
-    return JSON.parse(data?.choices[0]?.message?.content);
-  } catch (error) {
-    console.error('Error fetching workout plan:', error);
-    throw error;
-  }
-};
+//     const data = await response.json();
+//     return JSON.parse(data?.choices[0]?.message?.content);
+//   } catch (error) {
+//     console.error('Error fetching workout plan:', error);
+//     throw error;
+//   }
+// };
 
 // export const mockWorkoutData = {
 //   workoutPlan: [
