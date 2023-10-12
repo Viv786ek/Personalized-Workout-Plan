@@ -217,15 +217,13 @@ export const mockWorkoutData = {
     imageLink: 'https://example.com/chest_workout.jpg',
     description: 'A comprehensive chest workout for muscle growth.',
     dayWisePlans: [
-      'Day Plans:',
       'Warm-up: 10 minutes of light cardio',
       'Squat: 4 sets of 8-10 reps',
       'Deadlift: 3 sets of 8-10 reps',
       'Bench Press: 3 sets of 8-10 reps',
       'Pull-ups/Rows: 3 sets of 8-10 reps',
       'Overhead Press: 3 sets of 8-10 reps',
-      'Accessory exercises (e.g., bicep curls, tricep extensions): 3 sets of 10-12 reps',
-      'Cool down: 10 minutes of stretching',
+     
     ],
   },
   {
@@ -234,14 +232,12 @@ export const mockWorkoutData = {
     imageLink: 'https://example.com/leg_workout.jpg',
     description: 'Intense leg workout for strength and endurance.',
     dayWisePlans: [
-      'Day Plans:',
       'Warm-up: 10 minutes of light cardio',
       'Squats: 4 sets of 8-10 reps',
       'Leg Press: 3 sets of 8-10 reps',
       'Lunges: 3 sets of 12-15 reps',
       'Deadlift: 3 sets of 8-10 reps',
       'Calf Raises: 3 sets of 15-20 reps',
-      'Cool down: 10 minutes of stretching',
     ],
   },
   {
@@ -250,14 +246,12 @@ export const mockWorkoutData = {
     imageLink: 'https://example.com/back_and_shoulders.jpg',
     description: 'Workout to target the back and shoulder muscles.',
     dayWisePlans: [
-      'Day Plans:',
       'Warm-up: 10 minutes of light cardio',
       'Pull-ups: 4 sets of 8-10 reps',
       'Bent-over Rows: 3 sets of 8-10 reps',
       'Shoulder Press: 3 sets of 8-10 reps',
       'Lat Pulldowns: 3 sets of 8-10 reps',
       'Shrugs: 3 sets of 10-12 reps',
-      'Cool down: 10 minutes of stretching',
     ],
   },
   {
@@ -266,13 +260,11 @@ export const mockWorkoutData = {
     imageLink: 'https://example.com/core_workout.jpg',
     description: 'Strengthen your core muscles with this workout.',
     dayWisePlans: [
-      'Day Plans:',
       'Warm-up: 10 minutes of light cardio',
       'Planks: 4 sets of 30-60 seconds',
       'Russian Twists: 3 sets of 15-20 reps',
       'Leg Raises: 3 sets of 10-12 reps',
       'Crunches: 3 sets of 15-20 reps',
-      'Cool down: 10 minutes of stretching',
     ],
   },
 ]
